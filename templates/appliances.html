@@ -1,0 +1,20 @@
+
+<!-- SCRIPTS -->
+      <script src="{{ url_for('static', filename='js/appliances.js') }}"></script>
+
+
+<!-- CONTENTS -->
+<div style='position:absolute;top:100;width:500;height:170;left:50%;margin-left:-250'>
+<form id='pcPowerForm' method='Post'>
+<input id='confirmPcPower' type='checkbox' style='width:50;height:50' value='True'>
+<div style='position:absolute;top:70;width:100%'>
+<input id='switchOnPcButton' type='image' src='../static/start up pc button.png' alt='Submit' width='500' height='100' value='Switch On Pc'>
+<input id='switchOffPcButton' type='image' src='../static/shut down pc button.png' alt='Submit' width='500' height='100' value='Switch Off Pc'>
+</div></form></div>
+
+<div id='pcStartingImage' style='position:absolute;top:170;width:500;height:100;left:50%;margin-left:-250'>
+<img src='../static/pc is starting.png' width='500' height='100'>
+</div>
+<div id='pcShuttingDownImage' style='position:absolute;top:170;width:500;height:100;left:50%;margin-left:-250'>
+<img src='../static/pc is shutting down.png' width='500' height='100'>
+</div>

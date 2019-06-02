@@ -1,0 +1,51 @@
+
+<!-- SCRIPTS -->
+      <script src="{{ url_for('static', filename='js/kitchen.js') }}"></script>
+
+
+<!-- SCHEMATIC - KITCHEN - 645x697 -->
+<div style='position:absolute;top:0;left:0;width:630;height:681'><img src='../static/Kitchen Schematic 1.png' width='630' height='681'></div>
+
+
+<!-- GUAGES -->
+<div style='position:absolute;top:700;width:100%;height:300'>
+<div id="kitchenHumidityGuageDiv" style='position:absolute;top:0;width:200;height:200;left:50%;margin-left:-310'></div>
+<div id="kitchenTemperatureGuageDiv" style='position:absolute;top:0;width:200;height:200;left:50%;margin-left:-100'></div>
+<div id="kitchenLightGuageDiv" style='position:absolute;top:0;width:200;height:200;left:50%;margin-left:110'></div>
+</div>
+
+
+<!-- BUTTONS & DATA -->
+<div style='position:absolute;top:950;width:500;height:100;left:50%;margin-left:-250'>
+<form id='kitchenMainLightButton' method='Post'>
+<div id='kitchenMainLightOn'>
+<input type='image' id='kitchenMainLightOnButton' src='../static/SwitchMainLightsOnButton.png' alt='Submit' width='500' height='100' value='Kitchen Main Light On'>
+</div>
+<div id='kitchenMainLightOff'>
+<input type='image' id='kitchenMainLightOffButton' src='../static/SwitchMainLightsOffButton.png' alt='Submit' width='500' height='100' value='Kitchen Main Light On'>
+</div>
+</form></div>
+
+<div style='position:absolute;top:1100;width:500;height:100;left:50%;margin-left:-250'>
+<form id='kitchenAmbientLightButton' method='Post'>
+<div id='kitchenAmbientLightOn'>
+<input type='image' id='kitchenAmbientLightOnButton' src='../static/SwitchAmbientLightsOnButton.png' alt='Submit' width='500' height='100' value='Kitchen Ambient Light On'>
+</div>
+<div id='kitchenAmbientLightOff'>
+<input type='image' id='kitchenAmbientLightOffButton' src='../static/SwitchAmbientLightsOffButton.png' alt='Submit' width='500' height='100' value='Kitchen Ambient Light On'>
+</div>
+</form></div>
+
+<div style='position:absolute;top:1250;width:500;height:100;left:50%;margin-left:-250'>
+<form id='kitchenAllLightButton' method='Post'>
+<div id='kitchenAllLightOn'>
+<input type='image' id='kitchenAllLightOnButton' src='../static/SwitchAllLightsOnButton.png' alt='Submit' width='500' height='100' value='Kitchen All Light On'>
+</div>
+<div id='kitchenAllLightOff'>
+<input type='image' id='kitchenAllLightOffButton' src='../static/SwitchAllLightsOffButton.png' alt='Submit' width='500' height='100' value='Kitchen All Light On'>
+</div>
+</form></div>
+
+<div id='kitchenAllLightImage' style='position:absolute;top:1300;width:500;height:100;left:50%;margin-left:-250'>
+<img src='../static/SwitchAllLightsImage.png' width='500' height='100'>
+</div>

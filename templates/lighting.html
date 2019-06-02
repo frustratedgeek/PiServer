@@ -1,0 +1,160 @@
+
+<!-- SCRIPTS -->
+      <script src="{{ url_for('static', filename='js/lighting.js') }}"></script>
+
+
+<!-- SCHEMATIC - WHOLE FLAT - 1309x2164 -->
+<div style='position:absolute;top:0;left:0;width:630;height:1041'><img src='../static/Flat Schematic 1.png' width='630' height='1041'></div>
+
+
+<!-- ROOM SHAPES -->
+<div style='position:absolute;left:223;top:286'>
+<svg width='231' height='344'><path id='hallLightShape'  pointer-events='visible' fill='none' fill-opacity='0.1'
+d='M   0   0
+   L 231   0
+   L 231  65
+   L 145  65
+   L 145 347
+   L  77 347
+   L  77 295
+   L  69 295
+   L  69 179
+   L  77 179
+   L  77  83
+   L  84  83
+   L  84  65
+   L   0  65
+   Z'/></svg></div>
+
+<div style='position:absolute;left:54;top:366'>
+<svg width='238' height='258'><path id='kitchenAmbientLightShape1' pointer-events='visible' fill='none' fill-opacity='0.1'
+d='M  44  44
+   L 164  44
+   L 164  57
+   L  57  57
+   L  57 258
+   L  44 258
+   Z'/></svg></div>
+
+<div style='position:absolute;left:54;top:366'>
+<svg width='238' height='258'><path id='kitchenAmbientLightShape2' pointer-events='visible' fill='none' fill-opacity='0.1'
+d='M 174  52
+   L 187  52
+   L 187  76
+   L 212 100
+   L 240 100
+   L 240 113
+   L 210 113
+   L 174  84
+   Z'/></svg></div>
+
+<div style='position:absolute;left:54;top:366'>
+<svg width='238' height='258'><path id='kitchenAmbientLightShape3' pointer-events='visible' fill='none' fill-opacity='0.1'
+d='M 103 213
+   L 103 200
+   L 139 200
+   L 139 213
+   L 184 213
+   L 184 200
+   L 240 200
+   L 240 213
+   Z'/></svg></div>
+
+<div style='position:absolute;left:54;top:366'>
+<svg width='238' height='258'><path id='kitchenLightShape' pointer-events='visible' fill='none' fill-opacity='0.1'
+d='M   0   0
+   L 164   0
+   L 164  52
+   L 240  52
+   L 240 258
+   L 103 258
+   L 103 162
+   L  90 162
+   L  90 258
+   L   0 258
+   Z'/></svg></div>
+
+<div style='position:absolute;left:37;top:194'>
+<svg width='178' height='165'><path id='bathroomLightShape' pointer-events='visible' fill='none' fill-opacity='0.1'
+d='M   0   0
+   L 123   0
+   L 123  55
+   L 178  55
+   L 178 157
+   L 112 157
+   L 112 165
+   L   0 165
+   Z'/></svg></div>
+
+<div style='position:absolute;left:157;top:630'>
+<svg width='277' height='370'><path id='loungeLightShape' pointer-events='visible' fill='none' fill-opacity='0.1'
+d='M   0   0
+   L 212   0
+   L 212  66
+   L 277  66
+   L 277 372
+   L   0 372
+   Z'/></svg></div>
+
+<div style='position:absolute;left:419;top:169'>
+<svg width='100' height='100'><circle id='bedroomLightCircle' pointer-events='visible' fill='none' fill-opacity='0.1'
+cx='50' cy='50' r='50'>
+</svg></div>
+
+<div style='position:absolute;left:352;top:39'>
+<svg width='241' height='239'><path id='bedroomLightShape' pointer-events='visible' fill='none' fill-opacity='0.1'
+d='M   0   0
+   L 242   0
+   L 242 195
+   L 201 195
+   L 201 236
+   L  99 236
+   L  99 239
+   L   0 239
+   Z'/></svg></div>
+
+<div style='position:absolute;left:167;top:39'>
+<svg width='176' height='239'><path id='spareLightShape' pointer-events='visible' fill='none' fill-opacity='0.1'
+d='M   0   0
+   L 176   0
+   L 176 239
+   L  56 239
+   L  56 202
+   L   0 202
+   Z'/></svg></div>
+
+<div id='masterBedroomLightsPopup' style='position:absolute;top:300;left:80;width:470;height:210'>
+<img src='../static/Menu Popup.png' width='470' height='210'>
+<div style='position:absolute;top:40;left:40;width:180;height:50'><img src='../static/Main Lights Button.png' id='mainBedroom1LightsButton' width='180' height='50'></div>
+<div style='position:absolute;top:40;left:250;width:180;height:50'><img src='../static/Ambient Light Button.png' id='ambientBedroom1LightButton' width='180' height='50'></div>
+<div style='position:absolute;top:120;left:145;width:180;height:50'><img src='../static/All Lights Button.png' id='allBedroom1LightsButton' width='180' height='50'></div>
+</div>
+
+<div id='kitchenLightsPopup' style='position:absolute;top:300;left:80;width:470;height:210'>
+<img src='../static/Menu Popup.png' width='470' height='210'>
+<div style='position:absolute;top:40;left:40;width:180;height:50'><img src='../static/Main Lights Button.png' id='mainKitchenLightsButton' width='180' height='50'></div>
+<div style='position:absolute;top:40;left:250;width:180;height:50'><img src='../static/Ambient Light Button.png' id='ambientKitchenLightButton' width='180' height='50'></div>
+<div style='position:absolute;top:120;left:145;width:180;height:50'><img src='../static/All Lights Button.png' id='allKitchenLightsButton' width='180' height='50'></div>
+</div>
+
+
+<!-- BUTTONS -->
+<div style='position:absolute;top:1100;width:500;height:100;left:50%;margin-left:-250'>
+<form id='allLightsSwitchForm' method='Post'>
+<input type='image' id='allLightsSwitchButton' src='../static/SwitchAllLightsButton.png' alt='Submit' width='500' height='100' value='All Lights Switch'>
+</form></div>
+
+<div style='position:absolute;top:1230;width:500;height:100;left:50%;margin-left:-250'>
+<form id='allLightsOnForm' method='Post'>
+<input type='image' id='allLightsOnButton' src='../static/SwitchAllLightsOnButton.png' alt='Submit' width='500' height='100' value='All Lights On'>
+</form></div>
+
+<div style='position:absolute;top:1360;width:500;height:100;left:50%;margin-left:-250'>
+<form id='allLightsOffForm' method='Post'>
+<input type='image' id='allLightsOffButton' src='../static/SwitchAllLightsOffButton.png' alt='Submit' width='500' height='100' value='All Lights Off'>
+</form></div>
+
+
+
+
+

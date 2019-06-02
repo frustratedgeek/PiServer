@@ -1,0 +1,339 @@
+
+<!-- SCRIPTS -->
+   <script src="{{ url_for('static', filename='js/schedule.js') }}"></script>
+
+
+
+<!-- CONTENTS -->
+<font size='4'>
+<form id='saveSchedule' method='Post'>
+<table style='position:absolute;top:0;width:630;left:10;table-layout:fixed;font-size:x-large;table-layout:fixed'>
+   <tr>
+      <th height='90' style='width:190px'></th>
+      <th height='90' style='width:130px'>Morning Routine</th>
+      <th height='90' style='width:130px'>Evening Routine</th>
+      <th height='90' style='width:130px'>Weekend Routine</th>
+   </tr>
+   <tr>
+      <td height='70'><b>Monday:</b></td>
+      <th height='70'><input id='monMor' type='textbox' name='monMor' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('mondayMorning') != '' %}value='{{ scheduleTime('mondayMorning') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='monEve' type='textbox' name='monEve' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('mondayEvening') != '' %}value='{{ scheduleTime('mondayEvening') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='monWee' type='textbox' name='monWee' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('mondayWeekend') != '' %}value='{{ scheduleTime('mondayWeekend') }}'{% endif %} placeholder=':'></th>
+   </tr>
+   <tr>
+      <td height='70'><b>Tuesday:</b></td>
+      <th height='70'><input id='tueMor' type='textbox' name='tueMor' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('tuesdayMorning') != '' %}value='{{ scheduleTime('tuesdayMorning') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='tueEve' type='textbox' name='tueEve' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('tuesdayEvening') != '' %}value='{{ scheduleTime('tuesdayEvening') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='tueWee' type='textbox' name='tueWee' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('tuesdayWeekend') != '' %}value='{{ scheduleTime('tuesdayWeekend') }}'{% endif %} placeholder=':'></th>
+   </tr>
+   <tr>
+      <td height='70'><b>Wednesday:</b></td>
+      <th height='70'><input id='wedMor' type='textbox' name='wedMor' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('wednesdayMorning') != '' %}value='{{ scheduleTime('wednesdayMorning') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='wedEve' type='textbox' name='wedEve' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('wednesdayEvening') != '' %}value='{{ scheduleTime('wednesdayEvening') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='wedWee' type='textbox' name='wedWee' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('wednesdayWeekend') != '' %}value='{{ scheduleTime('wednesdayWeekend') }}'{% endif %} placeholder=':'></th>
+   </tr>
+   <tr>
+      <td height='70'><b>Thursday:</b></td>
+      <th height='70'><input id='thuMor' type='textbox' name='thuMor' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('thursdayMorning') != '' %}value='{{ scheduleTime('thursdayMorning') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='thuEve' type='textbox' name='thuEve' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('thursdayEvening') != '' %}value='{{ scheduleTime('thursdayEvening') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='thuWee' type='textbox' name='thuWee' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('thursdayWeekend') != '' %}value='{{ scheduleTime('thursdayWeekend') }}'{% endif %} placeholder=':'></th>
+   </tr>
+   <tr>
+      <td height='70'><b>Friday:</b></td>
+      <th height='70'><input id='friMor' type='textbox' name='friMor' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('fridayMorning') != '' %}value='{{ scheduleTime('fridayMorning') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='friEve' type='textbox' name='friEve' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('fridayEvening') != '' %}value='{{ scheduleTime('fridayEvening') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='friWee' type='textbox' name='friWee' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('fridayWeekend') != '' %}value='{{ scheduleTime('fridayWeekend') }}'{% endif %} placeholder=':'></th>
+   </tr>
+   <tr>
+      <td height='70'><b>Saturday:</b></td>
+      <th height='70'><input id='satMor' type='textbox' name='satMor' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('saturdayMorning') != '' %}value='{{ scheduleTime('saturdayMorning') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='satEve' type='textbox' name='satEve' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('saturdayEvening') != '' %}value='{{ scheduleTime('saturdayEvening') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='satWee' type='textbox' name='satWee' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('saturdayWeekend') != '' %}value='{{ scheduleTime('saturdayWeekend') }}'{% endif %} placeholder=':'></th>
+   </tr>
+   <tr>
+      <td height='70'><b>Sunday:</b></td>
+      <th height='70'><input id='sunMor' type='textbox' name='sunMor' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('sundayMorning') != '' %}value='{{ scheduleTime('sundayMorning') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='sunEve' type='textbox' name='sunEve' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('sundayEvening') != '' %}value='{{ scheduleTime('sundayEvening') }}'{% endif %} placeholder=':'></th>
+      <th height='70'><input id='sunWee' type='textbox' name='sunWee' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('sundayWeekend') != '' %}value='{{ scheduleTime('sundayWeekend') }}'{% endif %} placeholder=':'></th>
+   </tr>
+   <tr>
+      <td height='70'></td>
+      <th height='70'><img src='../static/edit button.png' id='scheduleMorningRoutineOptions' width='100' height='50'></th>
+      <th height='70'><img src='../static/edit button.png' id='scheduleEveningRoutineOptions' width='100' height='50'></th>
+      <th height='70'><img src='../static/edit button.png' id='scheduleWeekendRoutineOptions' width='100' height='50'></th>
+   </tr>
+   <tr>
+      <td height='180'></td>
+   </tr>
+   <tr>
+      <td height='70'>Light Levels:</td>
+      <th height='70'><input id='morningLightLevel' type='number' name='morningLightLevel' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('morningLightLevel') != '' %}value='{{ scheduleTime('morningLightLevel') }}'{% endif %} placeholder='100%'></th>
+      <th height='70'><input id='eveningLightLevel' type='number' name='eveningLightLevel' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('eveningLightLevel') != '' %}value='{{ scheduleTime('eveningLightLevel') }}'{% endif %} placeholder='100%'></th>
+      <th height='70'><input id='weekendLightLevel' type='number' name='weekendLightLevel' style='font-size:larger;text-align:center;width:110' {% if scheduleTime('weekendLightLevel') != '' %}value='{{ scheduleTime('weekendLightLevel') }}'{% endif %} placeholder='100%'></th>
+   </tr>
+</table>
+
+
+
+<div id='scheduleMorningRoutineOptionsPopup' style='position:absolute;top:120;left:5;width:620;height:470'>
+<img src='../static/Menu Popup.png' width='620' height='470'>
+<table style='position:absolute;top:20;width:580;left:10;table-layout:fixed;font-size:small;table-layout:fixed'>
+   <tr>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'><i>On</i></th>
+      <th height='45' style='width:50px'><i>Off</i></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'><i>On</i></th>
+      <th height='45' style='width:50px'><i>Off</i></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Hall Light</th>
+      <th height='45' style='width:50px'><input id='hallLightOnCheckMorning' type='checkbox' {% if scheduleTime('hallLightOnCheckMorning') == 'True' %}checked{% endif %} name='hallLightOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='hallLightOffCheckMorning' type='checkbox' {% if scheduleTime('hallLightOffCheckMorning') == 'True' %}checked{% endif %} name='hallLightOffCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>Hall Heater</th>
+      <th height='45' style='width:50px'><input id='hallHeaterOnCheckMorning' type='checkbox' {% if scheduleTime('hallHeaterOnCheckMorning') == 'True' %}checked{% endif %} name='hallHeaterOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='hallHeaterOffCheckMorning' type='checkbox' {% if scheduleTime('hallHeaterOffCheckMorning') == 'True' %}checked{% endif %} name='hallHeaterOffCheckMorning' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Kitchen Main Light</th>
+      <th height='45' style='width:50px'><input id='kitchenMainLightOnCheckMorning' type='checkbox' {% if scheduleTime('kitchenMainLightOnCheckMorning') == 'True' %}checked{% endif %} name='kitchenMainLightOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='kitchenMainLightOffCheckMorning' type='checkbox' {% if scheduleTime('kitchenMainLightOffCheckMorning') == 'True' %}checked{% endif %} name='kitchenMainLightOffCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>Lounge Heater 1</th>
+      <th height='45' style='width:50px'><input id='lounge1HeaterOnCheckMorning' type='checkbox' {% if scheduleTime('lounge1HeaterOnCheckMorning') == 'True' %}checked{% endif %} name='lounge1HeaterOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='lounge1HeaterOffCheckMorning' type='checkbox' {% if scheduleTime('lounge1HeaterOffCheckMorning') == 'True' %}checked{% endif %} name='lounge1HeaterOffCheckMorning' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Kitchen Ambient Light</th>
+      <th height='45' style='width:50px'><input id='kitchenAmbientLightOnCheckMorning' type='checkbox' {% if scheduleTime('kitchenAmbientLightOnCheckMorning') == 'True' %}checked{% endif %} name='kitchenAmbientLightOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='kitchenAmbientLightOffCheckMorning' type='checkbox' {% if scheduleTime('kitchenAmbientLightOffCheckMorning') == 'True' %}checked{% endif %} name='kitchenAmbientLightOffCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>Lounge Heater 2</th>
+      <th height='45' style='width:50px'><input id='lounge2HeaterOnCheckMorning' type='checkbox' {% if scheduleTime('lounge2HeaterOnCheckMorning') == 'True' %}checked{% endif %} name='lounge2HeaterOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='lounge2HeaterOffCheckMorning' type='checkbox' {% if scheduleTime('lounge2HeaterOffCheckMorning') == 'True' %}checked{% endif %} name='lounge2HeaterOffCheckMorning' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Lounge Light</th>
+      <th height='45' style='width:50px'><input id='loungeLightOnCheckMorning' type='checkbox' {% if scheduleTime('loungeLightOnCheckMorning') == 'True' %}checked{% endif %} name='loungeLightOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='loungeLightOffCheckMorning' type='checkbox' {% if scheduleTime('loungeLightOffCheckMorning') == 'True' %}checked{% endif %} name='loungeLightOffCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>PC</th>
+      <th height='45' style='width:50px'><input id='pcOnCheckMorning' type='checkbox' {% if scheduleTime('pcOnCheckMorning') == 'True' %}checked{% endif %} name='pcHOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='pcOffCheckMorning' type='checkbox' {% if scheduleTime('pcOffCheckMorning') == 'True' %}checked{% endif %} name='pcOffCheckMorning' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Bedroom Main Light</th>
+      <th height='45' style='width:50px'><input id='bedroom1MainLightOnCheckMorning' type='checkbox' {% if scheduleTime('bedroom1MainLightOnCheckMorning') == 'True' %}checked{% endif %} name='bedroom1MainLightOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bedroom1MainLightOffCheckMorning' type='checkbox' {% if scheduleTime('bedroom1MainLightOffCheckMorning') == 'True' %}checked{% endif %} name='bedroom1MainLightOffCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Bedroom Ambient Light</th>
+      <th height='45' style='width:50px'><input id='bedroom1AmbientLightOnCheckMorning' type='checkbox' {% if scheduleTime('bedroom1AmbientLightOnCheckMorning') == 'True' %}checked{% endif %} name='bedroom1AmbientLightOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bedroom1AmbientLightOffCheckMorning' type='checkbox' {% if scheduleTime('bedroom1AmbientLightOffCheckMorning') == 'True' %}checked{% endif %} name='bedroom1AmbientLightOffCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Spare Room Light</th>
+      <th height='45' style='width:50px'><input id='bedroom2LightOnCheckMorning' type='checkbox' {% if scheduleTime('bedroom2LightOnCheckMorning') == 'True' %}checked{% endif %} name='bedroom2LightOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bedroom2LightOffCheckMorning' type='checkbox' {% if scheduleTime('bedroom2LightOffCheckMorning') == 'True' %}checked{% endif %} name='bedroom2LightOffCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Bathroom Light</th>
+      <th height='45' style='width:50px'><input id='bathroomLightOnCheckMorning' type='checkbox' {% if scheduleTime('bathroomLightOnCheckMorning') == 'True' %}checked{% endif %} name='bathroomLightOnCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bathroomLightOffCheckMorning' type='checkbox' {% if scheduleTime('bathroomLightOffCheckMorning') == 'True' %}checked{% endif %} name='bathroomLightOffCheckMorning' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+</table>
+<div style='position:absolute;top:400;left:370;width:170;height:40'><img src='../static/close button.png' id='scheduleMorningRoutineOptionsClose' width='170' height='40'></div>
+</div>
+
+
+<div id='scheduleEveningRoutineOptionsPopup' style='position:absolute;top:120;left:5;width:620;height:470'>
+<img src='../static/Menu Popup.png' width='620' height='470'>
+<table style='position:absolute;top:20;width:580;left:10;table-layout:fixed;font-size:small;table-layout:fixed'>
+   <tr>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'><i>On</i></th>
+      <th height='45' style='width:50px'><i>Off</i></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'><i>On</i></th>
+      <th height='45' style='width:50px'><i>Off</i></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Hall Light</th>
+      <th height='45' style='width:50px'><input id='hallLightOnCheckEvening' type='checkbox' {% if scheduleTime('hallLightOnCheckEvening') == 'True' %}checked{% endif %} name='hallLightOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='hallLightOffCheckEvening' type='checkbox' {% if scheduleTime('hallLightOffCheckEvening') == 'True' %}checked{% endif %} name='hallLightOffCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>Hall Heater</th>
+      <th height='45' style='width:50px'><input id='hallHeaterOnCheckEvening' type='checkbox' {% if scheduleTime('hallHeaterOnCheckEvening') == 'True' %}checked{% endif %} name='hallHeaterOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='hallHeaterOffCheckEvening' type='checkbox' {% if scheduleTime('hallHeaterOffCheckEvening') == 'True' %}checked{% endif %} name='hallHeaterOffCheckEvening' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Kitchen Main Light</th>
+      <th height='45' style='width:50px'><input id='kitchenMainLightOnCheckEvening' type='checkbox' {% if scheduleTime('kitchenMainLightOnCheckEvening') == 'True' %}checked{% endif %} name='kitchenMainLightOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='kitchenMainLightOffCheckEvening' type='checkbox' {% if scheduleTime('kitchenMainLightOffCheckEvening') == 'True' %}checked{% endif %} name='kitchenMainLightOffCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>Lounge Heater 1</th>
+      <th height='45' style='width:50px'><input id='lounge1HeaterOnCheckEvening' type='checkbox' {% if scheduleTime('lounge1HeaterOnCheckEvening') == 'True' %}checked{% endif %} name='lounge1HeaterOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='lounge1HeaterOffCheckEvening' type='checkbox' {% if scheduleTime('lounge1HeaterOffCheckEvening') == 'True' %}checked{% endif %} name='lounge1HeaterOffCheckEvening' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Kitchen Ambient Light</th>
+      <th height='45' style='width:50px'><input id='kitchenAmbientLightOnCheckEvening' type='checkbox' {% if scheduleTime('kitchenAmbientLightOnCheckEvening') == 'True' %}checked{% endif %} name='kitchenAmbientLightOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='kitchenAmbientLightOffCheckEvening' type='checkbox' {% if scheduleTime('kitchenAmbientLightOffCheckEvening') == 'True' %}checked{% endif %} name='kitchenAmbientLightOffCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>Lounge Heater 2</th>
+      <th height='45' style='width:50px'><input id='lounge2HeaterOnCheckEvening' type='checkbox' {% if scheduleTime('lounge2HeaterOnCheckEvening') == 'True' %}checked{% endif %} name='lounge2HeaterOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='lounge2HeaterOffCheckEvening' type='checkbox' {% if scheduleTime('lounge2HeaterOffCheckEvening') == 'True' %}checked{% endif %} name='lounge2HeaterOffCheckEvening' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Lounge Light</th>
+      <th height='45' style='width:50px'><input id='loungeLightOnCheckEvening' type='checkbox' {% if scheduleTime('loungeLightOnCheckEvening') == 'True' %}checked{% endif %} name='loungeLightOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='loungeLightOffCheckEvening' type='checkbox' {% if scheduleTime('loungeLightOffCheckEvening') == 'True' %}checked{% endif %} name='loungeLightOffCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>PC</th>
+      <th height='45' style='width:50px'><input id='pcOnCheckEvening' type='checkbox' {% if scheduleTime('pcOnCheckEvening') == 'True' %}checked{% endif %} name='pcOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='pcOffCheckEvening' type='checkbox' {% if scheduleTime('pcOffCheckEvening') == 'True' %}checked{% endif %} name='pcOffCheckEvening' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Bedroom Main Light</th>
+      <th height='45' style='width:50px'><input id='bedroom1MainLightOnCheckEvening' type='checkbox' {% if scheduleTime('bedroom1MainLightOnCheckEvening') == 'True' %}checked{% endif %} name='bedroom1MainLightOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bedroom1MainLightOffCheckEvening' type='checkbox' {% if scheduleTime('bedroom1MainLightOffCheckEvening') == 'True' %}checked{% endif %} name='bedroom1MainLightOffCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Bedroom Ambient Light</th>
+      <th height='45' style='width:50px'><input id='bedroom1AmbientLightOnCheckEvening' type='checkbox' {% if scheduleTime('bedroom1AmbientLightOnCheckEvening') == 'True' %}checked{% endif %} name='bedroom1AmbientLightOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bedroom1AmbientLightOffCheckEvening' type='checkbox' {% if scheduleTime('bedroom1AmbientLightOffCheckEvening') == 'True' %}checked{% endif %} name='bedroom1AmbientLightOffCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Spare Room Light</th>
+      <th height='45' style='width:50px'><input id='bedroom2LightOnCheckEvening' type='checkbox' {% if scheduleTime('bedroom2LightOnCheckEvening') == 'True' %}checked{% endif %} name='bedroom2LightOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bedroom2LightOffCheckEvening' type='checkbox' {% if scheduleTime('bedroom2LightOffCheckEvening') == 'True' %}checked{% endif %} name='bedroom2LightOffCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Bathroom Light</th>
+      <th height='45' style='width:50px'><input id='bathroomLightOnCheckEvening' type='checkbox' {% if scheduleTime('bathroomLightOnCheckEvening') == 'True' %}checked{% endif %} name='bathroomLightOnCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bathroomLightOffCheckEvening' type='checkbox' {% if scheduleTime('bathroomLightOffCheckEvening') == 'True' %}checked{% endif %} name='bathroomLightOffCheckEvening' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+</table>
+<div style='position:absolute;top:400;left:370;width:170;height:40'><img src='../static/close button.png' id='scheduleEveningRoutineOptionsClose' width='170' height='40'></div>
+</div>
+
+<div id='scheduleWeekendRoutineOptionsPopup' style='position:absolute;top:120;left:5;width:620;height:470'>
+<img src='../static/Menu Popup.png' width='620' height='470'>
+<table style='position:absolute;top:20;width:580;left:10;table-layout:fixed;font-size:small;table-layout:fixed'>
+   <tr>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'><i>On</i></th>
+      <th height='45' style='width:50px'><i>Off</i></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'><i>On</i></th>
+      <th height='45' style='width:50px'><i>Off</i></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Hall Light</th>
+      <th height='45' style='width:50px'><input id='hallLightOnCheckWeekend' type='checkbox' {% if scheduleTime('hallLightOnCheckWeekend') == 'True' %}checked{% endif %} name='hallLightOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='hallLightOffCheckWeekend' type='checkbox' {% if scheduleTime('hallLightOffCheckWeekend') == 'True' %}checked{% endif %} name='hallLightOffCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>Hall Heater</th>
+      <th height='45' style='width:50px'><input id='hallHeaterOnCheckWeekend' type='checkbox' {% if scheduleTime('hallHeaterOnCheckWeekend') == 'True' %}checked{% endif %} name='hallHeaterOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='hallHeaterOffCheckWeekend' type='checkbox' {% if scheduleTime('hallHeaterOffCheckWeekend') == 'True' %}checked{% endif %} name='hallHeaterOffCheckWeekend' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Kitchen Main Light</th>
+      <th height='45' style='width:50px'><input id='kitchenMainLightOnCheckWeekend' type='checkbox' {% if scheduleTime('kitchenMainLightOnCheckWeekend') == 'True' %}checked{% endif %} name='kitchenMainLightOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='kitchenMainLightOffCheckWeekend' type='checkbox' {% if scheduleTime('kitchenMainLightOffCheckWeekend') == 'True' %}checked{% endif %} name='kitchenMainLightOffCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>Lounge Heater 1</th>
+      <th height='45' style='width:50px'><input id='lounge1HeaterOnCheckWeekend' type='checkbox' {% if scheduleTime('lounge1HeaterOnCheckWeekend') == 'True' %}checked{% endif %} name='lounge1HeaterOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='lounge1HeaterOffCheckWeekend' type='checkbox' {% if scheduleTime('lounge1HeaterOffCheckWeekend') == 'True' %}checked{% endif %} name='lounge1HeaterOffCheckWeekend' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Kitchen Ambient Light</th>
+      <th height='45' style='width:50px'><input id='kitchenAmbientLightOnCheckWeekend' type='checkbox' {% if scheduleTime('kitchenAmbientLightOnCheckWeekend') == 'True' %}checked{% endif %} name='kitchenAmbientLightOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='kitchenAmbientLightOffCheckWeekend' type='checkbox' {% if scheduleTime('kitchenAmbientLightOffCheckWeekend') == 'True' %}checked{% endif %} name='kitchenAmbientLightOffCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>Lounge Heater 2</th>
+      <th height='45' style='width:50px'><input id='lounge2HeaterOnCheckWeekend' type='checkbox' {% if scheduleTime('lounge2HeaterOnCheckWeekend') == 'True' %}checked{% endif %} name='lounge2HeaterOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='lounge2HeaterOffCheckWeekend' type='checkbox' {% if scheduleTime('lounge2HeaterOffCheckWeekend') == 'True' %}checked{% endif %} name='lounge2HeaterOffCheckWeekend' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Lounge Light</th>
+      <th height='45' style='width:50px'><input id='loungeLightOnCheckWeekend' type='checkbox' {% if scheduleTime('loungeLightOnCheckWeekend') == 'True' %}checked{% endif %} name='loungeLightOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='loungeLightOffCheckWeekend' type='checkbox' {% if scheduleTime('loungeLightOffCheckWeekend') == 'True' %}checked{% endif %} name='loungeLightOffCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'>PC</th>
+      <th height='45' style='width:50px'><input id='pcOnCheckWeekend' type='checkbox' {% if scheduleTime('pcOnCheckWeekend') == 'True' %}checked{% endif %} name='pcOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='pcOffCheckWeekend' type='checkbox' {% if scheduleTime('pcOffCheckWeekend') == 'True' %}checked{% endif %} name='pcOffCheckWeekend' style='width:35;height:35'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Bedroom Main Light</th>
+      <th height='45' style='width:50px'><input id='bedroom1MainLightOnCheckWeekend' type='checkbox' {% if scheduleTime('bedroom1MainLightOnCheckWeekend') == 'True' %}checked{% endif %} name='bedroom1MainLightOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bedroom1MainLightOffCheckWeekend' type='checkbox' {% if scheduleTime('bedroom1MainLightOffCheckWeekend') == 'True' %}checked{% endif %} name='bedroom1MainLightOffCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Bedroom Ambient Light</th>
+      <th height='45' style='width:50px'><input id='bedroom1AmbientLightOnCheckWeekend' type='checkbox' {% if scheduleTime('bedroom1AmbientLightOnCheckWeekend') == 'True' %}checked{% endif %} name='bedroom1AmbientLightOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bedroom1AmbientLightOffCheckWeekend' type='checkbox' {% if scheduleTime('bedroom1AmbientLightOffCheckWeekend') == 'True' %}checked{% endif %} name='bedroom1AmbientLightOffCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Spare Room Light</th>
+      <th height='45' style='width:50px'><input id='bedroom2LightOnCheckWeekend' type='checkbox' {% if scheduleTime('bedroom2LightOnCheckWeekend') == 'True' %}checked{% endif %} name='bedroom2LightOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bedroom2LightOffCheckWeekend' type='checkbox' {% if scheduleTime('bedroom2LightOffCheckWeekend') == 'True' %}checked{% endif %} name='bedroom2LightOffCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+   <tr>
+      <th height='45' style='width:190px'>Bathroom Light</th>
+      <th height='45' style='width:50px'><input id='bathroomLightOnCheckWeekend' type='checkbox' {% if scheduleTime('bathroomLightOnCheckWeekend') == 'True' %}checked{% endif %} name='bathroomLightOnCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:50px'><input id='bathroomLightOffCheckWeekend' type='checkbox' {% if scheduleTime('bathroomLightOffCheckWeekend') == 'True' %}checked{% endif %} name='bathroomLightOffCheckWeekend' style='width:35;height:35'></th>
+      <th height='45' style='width:190px'></th>
+      <th height='45' style='width:50px'></th>
+      <th height='45' style='width:50px'></th>
+   </tr>
+</table>
+<div style='position:absolute;top:400;left:370;width:170;height:40'><img src='../static/close button.png' id='scheduleWeekendRoutineOptionsClose' width='170' height='40'></div>
+</div>
+
+
+
+<div style='position:absolute;top:680;width:310;height:80;left:50%;margin-left:-310'>
+<input type='image' src='../static/glow.png' style='position:absolute;top:10;width:310;height:80;left:50%;margin-left:-155' value='Save Scheule'>
+<input type='image' src='../static/save schedule button.png' alt='Submit' width='200' height='55' value='Save Scheule'>
+</form></div>
+
+
+
+<div style='position:absolute;top:680;width:310;height:80;left:50%;margin-left:5'>
+<form id='pauseSchedule' method='Post'>
+<div id='pause'>
+<input type='image' src='../static/glow.png' style='position:absolute;top:10;width:310;height:80;left:50%;margin-left:-155' value='Pause Schedule'>
+<input type='image' src='../static/pause schedule button.png' alt='Submit' width='200' height='55' value='Pause Schedule'>
+</div>
+<div id='resume'>
+<input type='image' src='../static/glow.png' style='position:absolute;top:10;width:310;height:80;left:50%;margin-left:-155' value='Resume Schedule'>
+<input type='image' src='../static/resume schedule button.png' alt='Submit' width='200' height='55' value='Resume Schedule'>
+</div>
+</form></div>
+
+
+
+<font size='6'><div id='scheduleMessage' style='position:absolute;top:780;width:800;height:80;left:50%;margin-left:-400'></div></font size>
